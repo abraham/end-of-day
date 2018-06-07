@@ -1,0 +1,49 @@
+{
+  "name": "functions",
+  "scripts": {
+    "build": "tsc",
+    "deploy": "firebase deploy --only functions",
+    "lint": "tslint --project tsconfig.json",
+    "logs": "firebase functions:log",
+    "serve": "npm run build && firebase serve --only functions",
+    "shell": "npm run build && firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "test": "jest",
+    "watch": "jest --watch"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "@google-cloud/firestore": "^0.14.1",
+    "firebase-admin": "^5.12.1",
+    "firebase-functions": "^1.0.4",
+    "moment": "^2.22.2",
+    "node-fetch": "^2.1.2",
+    "slack": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.0.0",
+    "@types/node-fetch": "^2.1.1",
+    "@types/sinon": "^5.0.1",
+    "firebase-functions-test": "^0.1.2",
+    "jest": "^23.1.0",
+    "sinon": "^5.1.0",
+    "ts-jest": "^22.4.6",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.1"
+  },
+  "private": true,
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}

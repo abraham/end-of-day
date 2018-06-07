@@ -1,0 +1,38 @@
+{
+  "indexes": [
+    {
+      "collectionId": "messages",
+      "fields": [
+        {
+          "fieldPath": "team_id",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "date_id",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "created_at",
+          "mode": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionId": "messages",
+      "fields": [
+        {
+          "fieldPath": "team_id",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "user_id",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "date_id",
+          "mode": "ASCENDING"
+        }
+      ]
+    }
+  ]
+}
