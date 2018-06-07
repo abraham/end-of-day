@@ -15,13 +15,13 @@ admin.initializeApp();
 const store = admin.firestore();
 const db = new Db(store);
 
-exports.log = functions.https.onRequest(async (request, response) => {
-  const text = await handleMessage(request.body as WebhookPayload);
+exports.log = functions.https.onRequest(async ({body}: {body: WebhookPayload}, response) => {
+  const text = await handleMessage(body);
   response.send(text);
 });
 
-exports.onMessageUpdate = functions.firestore.document('messages/{messageId}').onWrite(async (change, context) => {
-  const message: Message = change.after.data() as Message;
+exports.onMessageUpdate = functions.firestore.document('messages/{messageId}').onWrite(async ({after}, context) => {
+  const message: Message = after.data() as Message;
   const res = await updateReport(message.team_id, message.date_id);
 });
 
@@ -52,11 +52,9 @@ async function handleMessage(data: WebhookPayload) {
     await store.collection('tasks').add(listTaskData(message));
       return 'Finding your EODs...';
   } else {
-    console.time('messages.add');
     await store.collection('messages')
       .doc(`${message.team_id}_${message.user_id}_${message.date_id}`)
       .set(message);
-    console.timeEnd('messages.add');
     return 'Logging your EOD...';
   }
 }
