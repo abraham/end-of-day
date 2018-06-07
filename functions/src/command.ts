@@ -4,7 +4,6 @@ export enum Commands {
   Log = 'Log',
   List = 'List',
   Refresh = 'Refresh',
-  Ping = 'Ping'
 }
 
 export class Command {
