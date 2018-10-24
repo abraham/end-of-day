@@ -17,12 +17,12 @@
     "firebase-admin": "5.13.1",
     "firebase-functions": "1.1.0",
     "moment": "2.22.2",
-    "node-fetch": "2.1.2",
+    "node-fetch": "2.2.0",
     "slack": "11.0.0"
   },
   "devDependencies": {
     "@types/jest": "23.3.7",
-    "@types/node-fetch": "2.1.1",
+    "@types/node-fetch": "2.1.2",
     "@types/sinon": "5.0.5",
     "firebase-functions-test": "0.1.4",
     "jest": "23.6.0",
