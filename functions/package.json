@@ -18,7 +18,7 @@
     "firebase-functions": "1.1.0",
     "moment": "2.22.2",
     "node-fetch": "2.2.0",
-    "slack": "11.0.0"
+    "slack": "11.0.1"
   },
   "devDependencies": {
     "@types/jest": "23.3.7",
