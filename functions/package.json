@@ -21,7 +21,7 @@
     "slack": "11.0.1"
   },
   "devDependencies": {
-    "@types/jest": "23.3.7",
+    "@types/jest": "23.3.8",
     "@types/node-fetch": "2.1.2",
     "@types/sinon": "5.0.5",
     "firebase-functions-test": "0.1.4",
