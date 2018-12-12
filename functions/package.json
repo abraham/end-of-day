@@ -24,7 +24,7 @@
     "@types/jest": "23.3.10",
     "@types/node-fetch": "2.1.4",
     "@types/sinon": "5.0.7",
-    "firebase-functions-test": "0.1.5",
+    "firebase-functions-test": "0.1.6",
     "jest": "23.6.0",
     "sinon": "7.2.2",
     "ts-jest": "23.10.5",
