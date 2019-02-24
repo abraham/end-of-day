@@ -23,10 +23,10 @@
   "devDependencies": {
     "@types/jest": "24.0.6",
     "@types/node-fetch": "2.1.6",
-    "@types/sinon": "7.0.5",
+    "@types/sinon": "7.0.6",
     "firebase-functions-test": "0.1.6",
     "jest": "24.1.0",
-    "sinon": "7.2.3",
+    "sinon": "7.2.4",
     "ts-jest": "23.10.5",
     "tslint": "5.13.0",
     "typescript": "3.3.3"
