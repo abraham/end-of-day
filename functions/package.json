@@ -28,7 +28,7 @@
     "jest": "24.5.0",
     "sinon": "7.2.7",
     "ts-jest": "24.0.0",
-    "tslint": "5.13.0",
+    "tslint": "5.14.0",
     "typescript": "3.3.3333"
   },
   "private": true,
