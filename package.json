@@ -1,0 +1,30 @@
+{
+  "name": "end-of-day",
+  "version": "0.1.0",
+  "description": "Slack bot for collecting a summary of your team's activity for the day",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "firebase-tools": "^8.0.1"
+  },
+  "scripts": {
+    "postinstall": "npm --prefix functions install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abraham/end-of-day.git"
+  },
+  "keywords": [
+    "slack",
+    "team",
+    "standup",
+    "firebase"
+  ],
+  "author": "Abraham Williams <abraham@abrah.am>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abraham/end-of-day/issues"
+  },
+  "homepage": "https://github.com/abraham/end-of-day#readme"
+}
