@@ -2,12 +2,11 @@
   "name": "end-of-day",
   "version": "0.1.0",
   "description": "Slack bot for collecting a summary of your team's activity for the day",
-  "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {
-    "firebase-tools": "^8.0.1"
-  },
   "scripts": {
+    "fix:prettier": "prettier . --write",
+    "fix": "concurrently npm:fix:*",
+    "lint:prettier": "prettier . --check",
+    "lint": "concurrently npm:lint:*",
     "postinstall": "npm --prefix functions install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,5 +25,11 @@
   "bugs": {
     "url": "https://github.com/abraham/end-of-day/issues"
   },
-  "homepage": "https://github.com/abraham/end-of-day#readme"
+  "homepage": "https://github.com/abraham/end-of-day#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "firebase-tools": "^8.0.1",
+    "prettier": "^2.0.2"
+  }
 }
