@@ -25,7 +25,11 @@ export class Collection {
     return snapshot.data() as Message;
   }
 
-  public async listByUserByWeek(teamId: TeamID, userId: string, weekRange: WeekRange) {
+  public async listByUserByWeek(
+    teamId: TeamID,
+    userId: string,
+    weekRange: WeekRange
+  ) {
     const query = await this.collection
       .where('team_id', '==', teamId)
       .where('user_id', '==', userId)
@@ -35,7 +39,10 @@ export class Collection {
     return this.sort(this.data(query));
   }
 
-  public async listByTeamByDay(teamId: TeamID, dateId: DateID): Promise<Message[]> {
+  public async listByTeamByDay(
+    teamId: TeamID,
+    dateId: DateID
+  ): Promise<Message[]> {
     const query = await this.collection
       .where('team_id', '==', teamId)
       .where('date_id', '==', dateId)
@@ -48,9 +55,11 @@ export class Collection {
   }
 
   private data(query: FirebaseFirestore.QuerySnapshot) {
-    return query.docs.map(ref => ref.data() as Message);
+    return query.docs.map((ref) => ref.data() as Message);
   }
   private sort(messages: Message[]): Message[] {
-    return messages.sort((a, b) => a.created_at.getTime() - b.created_at.getTime());
+    return messages.sort(
+      (a, b) => a.created_at.getTime() - b.created_at.getTime()
+    );
   }
 }

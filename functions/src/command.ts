@@ -1,4 +1,4 @@
-import { capitalizeFirstLetter } from './string'
+import { capitalizeFirstLetter } from './string';
 
 export enum Commands {
   Log = 'Log',
@@ -13,12 +13,14 @@ export class Command {
 
   constructor(text: string) {
     this.parts = this.parse(text);
-    this.command = capitalizeFirstLetter(this.parts.splice(0, 1)[0].toLowerCase());
+    this.command = capitalizeFirstLetter(
+      this.parts.splice(0, 1)[0].toLowerCase()
+    );
     this.text = text.slice(this.command.length).trim();
   }
 
   public get unknown(): boolean {
-    return !Object.keys(Commands).some(command => command === this.command);
+    return !Object.keys(Commands).some((command) => command === this.command);
   }
 
   public is(command: string): boolean {

@@ -27,34 +27,47 @@ function baseMessage(team: Team) {
     as_user: false,
     channel: team.channel_id,
     token: team.token,
-    icon_url: 'https://end-of-day.firebaseapp.com/sunset.png'
-  }
+    icon_url: 'https://end-of-day.firebaseapp.com/sunset.png',
+  };
 }
 
 export function postSlackMessage(team: Team, dateId: string) {
   const message = {
     ...baseMessage(team),
-    text: eodMessage(dateId, [])
-  }
+    text: eodMessage(dateId, []),
+  };
   return slack.chat.postMessage(message);
 }
 
-export async function createSlackResponse(data: Message, team: Team, weekRange: WeekRange, messages: Message[]) {
+export async function createSlackResponse(
+  data: Message,
+  team: Team,
+  weekRange: WeekRange,
+  messages: Message[]
+) {
   const body = {
     response_type: 'ephemeral',
     text: eodWeekMessage(weekRange, messages),
   };
-  const response = await fetch(data.response_url, { method: 'POST', body: JSON.stringify(body) });
+  const response = await fetch(data.response_url, {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
   const text = await response.text();
   return text;
 }
 
-export function updateSlackMessage(team: Team, dateId: string, messages: Message[], report: Report) {
+export function updateSlackMessage(
+  team: Team,
+  dateId: string,
+  messages: Message[],
+  report: Report
+) {
   const message = {
     ...baseMessage(team),
     text: eodMessage(dateId, messages),
     ts: report.ts,
-    channel: team.channel_id
+    channel: team.channel_id,
   };
   return slack.chat.update(message);
 }

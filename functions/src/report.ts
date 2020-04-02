@@ -2,7 +2,7 @@ import { ReportID } from './ids';
 
 export interface Report {
   bot_id: string;
-  icons: { image_48: string; }
+  icons: { image_48: string };
   subtype: 'bot_message';
   text: string;
   ts: string;

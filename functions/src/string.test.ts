@@ -1,4 +1,12 @@
-import { capitalizeFirstLetter, eodLine, eodMessage, eodText, eodWeekMessage, hasPunctuation, twoDigit } from './string';
+import {
+  capitalizeFirstLetter,
+  eodLine,
+  eodMessage,
+  eodText,
+  eodWeekMessage,
+  hasPunctuation,
+  twoDigit,
+} from './string';
 
 import { Message } from './message';
 
@@ -16,7 +24,7 @@ const sampleMessages: Message[] = [
     token: 'fasefse8fasef;lsufhaslefsefsaeflasejfhais7efh393hff',
     trigger_id: 'fasefasefsfsefafsef',
     user_id: 'fasefasefasef',
-    user_name: 'Sam'
+    user_name: 'Sam',
   },
   {
     channel_id: 'blahblah',
@@ -31,8 +39,8 @@ const sampleMessages: Message[] = [
     token: 'fasefse8fasef;lsufhaslefsefsaeflasejfhais7efh393hff',
     trigger_id: 'fasefasefsfsefafsef',
     user_id: 'fasefasefasef',
-    user_name: 'Jess'
-  }
+    user_name: 'Jess',
+  },
 ];
 
 test('twoDigit', () => {
@@ -65,7 +73,12 @@ EODs for Jan, 1st:
 });
 
 test('eodWeekMessage', () => {
-  expect(eodWeekMessage({ startDateId: '20180101', endDateId: '20180107' }, sampleMessages)).toEqual(`
+  expect(
+    eodWeekMessage(
+      { startDateId: '20180101', endDateId: '20180107' },
+      sampleMessages
+    )
+  ).toEqual(`
 Your EODs from Jan, 1st to Jan, 7th:
 - Sam: Did an awesome thing.
 - Jess: Thing that is pretty sweet.`);
