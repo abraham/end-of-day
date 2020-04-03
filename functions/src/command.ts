@@ -27,7 +27,7 @@ export class Command {
     return this.command === command;
   }
 
-  private parse(text: string): any {
+  private parse(text: string): string[] {
     return text.split(' ');
   }
 }

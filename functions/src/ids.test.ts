@@ -1,7 +1,9 @@
 import { formatReportId } from './ids';
 
-test('formatReportId', () => {
-  expect(formatReportId('team-awesome', '20180101')).toEqual(
-    'team-awesome_20180101'
-  );
+describe('ids', () => {
+  it('formatReportId', () => {
+    expect(formatReportId('team-awesome', '20180101')).toStrictEqual(
+      'team-awesome_20180101'
+    );
+  });
 });

@@ -1,12 +1,10 @@
+import fetch from 'node-fetch';
 import * as slack from 'slack';
-
-import { eodMessage, eodWeekMessage } from './string';
-
 import { Message } from './message';
 import { Report } from './report';
+import { eodMessage, eodWeekMessage } from './string';
 import { Team } from './team';
 import { WeekRange } from './time';
-import fetch from 'node-fetch';
 
 export interface WebhookPayload {
   token: string; // '5v1FuO8D354535Lkk7'
@@ -22,29 +20,32 @@ export interface WebhookPayload {
   trigger_id: string; // '3389234234257.4094565084.83e5b64e5ff0987f9s8e7f19d4a0da56228'
 }
 
-function baseMessage(team: Team) {
+function baseMessage(
+  team: Team,
+  data: { text: string; channel?: string; ts?: string }
+): Chat.PostMessage.Params {
   return {
     as_user: false,
     channel: team.channel_id,
-    token: team.token,
     icon_url: 'https://end-of-day.firebaseapp.com/sunset.png',
+    token: team.token,
+    ...data,
   };
 }
 
-export function postSlackMessage(team: Team, dateId: string) {
-  const message = {
-    ...baseMessage(team),
-    text: eodMessage(dateId, []),
-  };
+export function postSlackMessage(
+  team: Team,
+  dateId: string
+): Promise<Chat.PostMessage.Response> {
+  const message = baseMessage(team, { text: eodMessage(dateId, []) });
   return slack.chat.postMessage(message);
 }
 
 export async function createSlackResponse(
   data: Message,
-  team: Team,
   weekRange: WeekRange,
   messages: Message[]
-) {
+): Promise<string> {
   const body = {
     response_type: 'ephemeral',
     text: eodWeekMessage(weekRange, messages),
@@ -62,12 +63,11 @@ export function updateSlackMessage(
   dateId: string,
   messages: Message[],
   report: Report
-) {
-  const message = {
-    ...baseMessage(team),
+): Promise<Chat.Update.Response> {
+  const message = baseMessage(team, {
+    channel: team.channel_id,
     text: eodMessage(dateId, messages),
     ts: report.ts,
-    channel: team.channel_id,
-  };
+  });
   return slack.chat.update(message);
 }

@@ -1,6 +1,6 @@
 import * as moment from 'moment';
-import { DateID } from './ids';
 
+type DateID = import('./ids').DateID;
 export interface WeekRange {
   startDateId: DateID;
   endDateId: DateID;
@@ -23,14 +23,8 @@ export const MONTHS = [
   'Dec',
 ];
 
-export function currentDateId(offset: number = 5): string {
+export function currentDateId(offset = 5): string {
   return moment().subtract(offset, 'hours').endOf('day').format('YYYYMMDD');
-}
-
-export function humanDate(date: string): string {
-  const month = Number(date.slice(-4, -2)) - 1;
-  const day = Number(date.slice(-2));
-  return `${MONTHS[month]}, ${day}${nth(day)}`;
 }
 
 export function nth(day: number): string {
@@ -47,17 +41,23 @@ export function nth(day: number): string {
   }
 }
 
-export function weekRange(offset: number = 5): WeekRange {
-  return {
-    startDateId: oneWeekAgo(offset),
-    endDateId: currentDateId(offset),
-  };
+export function humanDate(date: string): string {
+  const month = Number(date.slice(-4, -2)) - 1;
+  const day = Number(date.slice(-2));
+  return `${MONTHS[month]}, ${day}${nth(day)}`;
 }
 
-export function oneWeekAgo(offset: number = 5): DateID {
+export function oneWeekAgo(offset = 5): DateID {
   return moment()
     .subtract(offset, 'hours')
     .subtract(7, 'days')
     .startOf('day')
     .format('YYYYMMDD');
+}
+
+export function weekRange(offset = 5): WeekRange {
+  return {
+    startDateId: oneWeekAgo(offset),
+    endDateId: currentDateId(offset),
+  };
 }
