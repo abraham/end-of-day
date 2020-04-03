@@ -3,11 +3,9 @@
     "lib": ["es6"],
     "module": "commonjs",
     "noImplicitReturns": true,
-    "outDir": "dist",
     "sourceMap": true,
     "target": "es6",
     "strict": true
   },
-  "compileOnSave": true,
-  "include": ["src"]
+  "compileOnSave": true
 }

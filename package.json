@@ -3,14 +3,17 @@
   "version": "0.1.0",
   "description": "Slack bot for collecting a summary of your team's activity for the day",
   "scripts": {
-    "fix:eslint": "eslint . --ext .ts --ext .js --fix",
+    "build": "tsc",
+    "deploy": "firebase deploy",
+    "fix:eslint": "eslint . --ext .ts --fix",
     "fix:prettier": "prettier . --write",
     "fix": "concurrently npm:fix:*",
-    "lint:eslint": "eslint . --ext .ts --ext .js",
+    "lint:eslint": "eslint . --ext .ts",
     "lint:prettier": "prettier . --check",
     "lint": "concurrently npm:lint:*",
     "postinstall": "npm --prefix functions install",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:tests": "jest --watch",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -30,6 +33,7 @@
   "homepage": "https://github.com/abraham/end-of-day#readme",
   "dependencies": {},
   "devDependencies": {
+    "@types/jest": "25.1.5",
     "@typescript-eslint/eslint-plugin": "2.26.0",
     "@typescript-eslint/parser": "2.26.0",
     "concurrently": "5.1.0",
@@ -37,7 +41,10 @@
     "eslint-config-prettier": "6.10.1",
     "eslint-plugin-jest": "23.8.2",
     "firebase-tools": "8.0.1",
+    "jest": "25.2.6",
     "prettier": "2.0.2",
+    "ts-jest": "25.3.0",
     "typescript": "3.8.3"
-  }
+  },
+  "private": true
 }

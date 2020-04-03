@@ -89,11 +89,11 @@ async function updateReport(
 }
 
 async function createWeekReport(message: Message): Promise<string> {
-  const [team, messages] = await Promise.all([
+  const [, messages] = await Promise.all([
     db.teams.get(message.team_id),
     db.messages.listByUserByWeek(message.team_id, message.user_id, weekRange()),
   ]);
-  return createSlackResponse(message, team, weekRange(), messages);
+  return createSlackResponse(message, weekRange(), messages);
 }
 
 exports.log = functions.https.onRequest(
