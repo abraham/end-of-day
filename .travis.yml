@@ -6,9 +6,14 @@ node_js:
 jobs:
   include:
     - stage: Build
-      name: Lint
+      name: Build
+      script: npm run build
+    - name: Lint
       script: npm run lint
     - name: Security
       script: npm audit && npm audit --prefix functions
+    - stage: Test
+      name: Unit
+      script: npm test
   allow_failures:
     - name: Security

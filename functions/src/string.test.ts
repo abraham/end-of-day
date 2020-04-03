@@ -74,9 +74,9 @@ describe('string', () => {
 
   it('eodMessage', () => {
     expect(eodMessage('20180101', sampleMessages)).toStrictEqual(`
-  EODs for Jan, 1st:
-  - Sam: Did an awesome thing.
-  - Jess: Thing that is pretty sweet.`);
+EODs for Jan, 1st:
+- Sam: Did an awesome thing.
+- Jess: Thing that is pretty sweet.`);
   });
 
   it('eodWeekMessage', () => {
@@ -86,9 +86,9 @@ describe('string', () => {
         sampleMessages
       )
     ).toStrictEqual(`
-  Your EODs from Jan, 1st to Jan, 7th:
-  - Sam: Did an awesome thing.
-  - Jess: Thing that is pretty sweet.`);
+Your EODs from Jan, 1st to Jan, 7th:
+- Sam: Did an awesome thing.
+- Jess: Thing that is pretty sweet.`);
   });
 
   it('capitalizeFirstLetter', () => {

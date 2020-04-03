@@ -16,7 +16,7 @@
   "env": {
     "node": true
   },
-  "ignorePatterns": ["node_modules/", "dist/"],
+  "ignorePatterns": ["node_modules/"],
   "rules": {
     "jest/prefer-expect-assertions": 0,
     "@typescript-eslint/camelcase": 1,

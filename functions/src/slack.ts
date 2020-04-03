@@ -20,14 +20,24 @@ export interface WebhookPayload {
   trigger_id: string; // '3389234234257.4094565084.83e5b64e5ff0987f9s8e7f19d4a0da56228'
 }
 
+interface PostParams {
+  text: string;
+}
+
+interface UpdateParams extends PostParams {
+  channel: string;
+  ts: string;
+}
+function baseMessage(team: Team, data: PostParams): Chat.PostMessage.Params;
+function baseMessage(team: Team, data: UpdateParams): Chat.Update.Params;
 function baseMessage(
   team: Team,
-  data: { text: string; channel?: string; ts?: string }
-): Chat.PostMessage.Params {
+  data: PostParams | UpdateParams
+): Chat.PostMessage.Params | Chat.Update.Params {
   return {
     as_user: false,
     channel: team.channel_id,
-    icon_url: 'https://end-of-day.firebaseapp.com/sunset.png',
+    icon_url: 'https://end-of-day.firebaseapp.com/sunset.png', // TODO: Stop hardcoding this
     token: team.token,
     ...data,
   };
