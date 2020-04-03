@@ -1,0 +1,14 @@
+os: linux
+dist: bionic
+language: node_js
+node_js:
+  - '10'
+jobs:
+  include:
+    - stage: Build
+      name: Lint
+      script: npm run lint
+    - name: Security
+      script: npm audit && npm audit --prefix functions
+  allow_failures:
+    - name: Security
