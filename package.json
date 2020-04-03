@@ -15,6 +15,9 @@
     "start:tests": "jest --watch",
     "test": "jest"
   },
+  "engines": {
+    "node": "10"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/abraham/end-of-day.git"
