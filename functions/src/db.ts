@@ -5,19 +5,15 @@ import { Collection as Messages } from './message';
 export class Db {
   constructor(private store: FirebaseFirestore.Firestore) {}
 
-  public get messages() {
+  public get messages(): Messages {
     return new Messages(this.store);
   }
 
-  public get reports() {
+  public get reports(): Reports {
     return new Reports(this.store);
   }
 
-  // public get users() {
-  //   return undefined;
-  // }
-
-  public get teams() {
+  public get teams(): Teams {
     return new Teams(this.store);
   }
 }

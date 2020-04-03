@@ -13,7 +13,7 @@ export interface Report {
 export class Collection {
   constructor(private store: FirebaseFirestore.Firestore) {}
 
-  public async get(id: ReportID) {
+  public async get(id: ReportID): Promise<Report> {
     const snapshot = await this.store.doc(`reports/${id}`).get();
     return snapshot.data() as Report;
   }

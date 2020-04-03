@@ -1,5 +1,5 @@
-import { WeekRange } from './time';
 import { DateID, TeamID } from './ids';
+import { WeekRange } from './time';
 
 export interface Message {
   channel_id: string;
@@ -20,7 +20,7 @@ export interface Message {
 export class Collection {
   constructor(private store: FirebaseFirestore.Firestore) {}
 
-  public async get(id: string) {
+  public async get(id: string): Promise<Message> {
     const snapshot = await this.store.doc(`messages/${id}`).get();
     return snapshot.data() as Message;
   }
@@ -29,7 +29,7 @@ export class Collection {
     teamId: TeamID,
     userId: string,
     weekRange: WeekRange
-  ) {
+  ): Promise<Message[]> {
     const query = await this.collection
       .where('team_id', '==', teamId)
       .where('user_id', '==', userId)
@@ -54,7 +54,7 @@ export class Collection {
     return this.store.collection('messages');
   }
 
-  private data(query: FirebaseFirestore.QuerySnapshot) {
+  private data(query: FirebaseFirestore.QuerySnapshot): Message[] {
     return query.docs.map((ref) => ref.data() as Message);
   }
   private sort(messages: Message[]): Message[] {

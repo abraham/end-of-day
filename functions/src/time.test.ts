@@ -1,13 +1,15 @@
-import { nth, humanDate } from './time';
+import { humanDate, nth } from './time';
 
-test('humanDate', () => {
-  expect(humanDate('20180101')).toEqual('Jan, 1st');
-  expect(humanDate('20180504')).toEqual('May, 4th');
-});
+describe('time', () => {
+  it('humanDate', () => {
+    expect(humanDate('20180101')).toStrictEqual('Jan, 1st');
+    expect(humanDate('20180504')).toStrictEqual('May, 4th');
+  });
 
-test('nth', () => {
-  expect(nth(1)).toEqual('st');
-  expect(nth(2)).toEqual('nd');
-  expect(nth(3)).toEqual('rd');
-  expect(nth(4)).toEqual('th');
+  it('nth', () => {
+    expect(nth(1)).toStrictEqual('st');
+    expect(nth(2)).toStrictEqual('nd');
+    expect(nth(3)).toStrictEqual('rd');
+    expect(nth(4)).toStrictEqual('th');
+  });
 });

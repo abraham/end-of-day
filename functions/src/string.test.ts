@@ -43,48 +43,56 @@ const sampleMessages: Message[] = [
   },
 ];
 
-test('twoDigit', () => {
-  expect(twoDigit(1)).toEqual('01');
-  expect(twoDigit(11)).toEqual('11');
-  expect(twoDigit(111)).toEqual('11');
-});
+describe('string', () => {
+  it('twoDigit', () => {
+    expect(twoDigit(1)).toStrictEqual('01');
+    expect(twoDigit(11)).toStrictEqual('11');
+    expect(twoDigit(111)).toStrictEqual('11');
+  });
 
-test('hasPunctuation', () => {
-  expect(hasPunctuation('This is a partial thought')).toBeFalsy();
-  expect(hasPunctuation('This is a thought.')).toBeTruthy();
-  expect(hasPunctuation('This is a question?')).toBeTruthy();
-  expect(hasPunctuation('This is important!')).toBeTruthy();
-});
+  it('hasPunctuation', () => {
+    expect(hasPunctuation('This is a partial thought')).toStrictEqual(false);
+    expect(hasPunctuation('This is a thought.')).toStrictEqual(true);
+    expect(hasPunctuation('This is a question?')).toStrictEqual(true);
+    expect(hasPunctuation('This is important!')).toStrictEqual(true);
+  });
 
-test('eodLine', () => {
-  expect(eodLine(sampleMessages[0])).toEqual('- Sam: Did an awesome thing.');
-});
+  it('eodLine', () => {
+    expect(eodLine(sampleMessages[0])).toStrictEqual(
+      '- Sam: Did an awesome thing.'
+    );
+  });
 
-test('eodText', () => {
-  expect(eodText('Did an awesome thing.')).toEqual('Did an awesome thing.');
-  expect(eodText('  Did an awesome thing  ')).toEqual('Did an awesome thing.');
-});
+  it('eodText', () => {
+    expect(eodText('Did an awesome thing.')).toStrictEqual(
+      'Did an awesome thing.'
+    );
+    expect(eodText('  Did an awesome thing  ')).toStrictEqual(
+      'Did an awesome thing.'
+    );
+  });
 
-test('eodMessage', () => {
-  expect(eodMessage('20180101', sampleMessages)).toEqual(`
-EODs for Jan, 1st:
-- Sam: Did an awesome thing.
-- Jess: Thing that is pretty sweet.`);
-});
+  it('eodMessage', () => {
+    expect(eodMessage('20180101', sampleMessages)).toStrictEqual(`
+  EODs for Jan, 1st:
+  - Sam: Did an awesome thing.
+  - Jess: Thing that is pretty sweet.`);
+  });
 
-test('eodWeekMessage', () => {
-  expect(
-    eodWeekMessage(
-      { startDateId: '20180101', endDateId: '20180107' },
-      sampleMessages
-    )
-  ).toEqual(`
-Your EODs from Jan, 1st to Jan, 7th:
-- Sam: Did an awesome thing.
-- Jess: Thing that is pretty sweet.`);
-});
+  it('eodWeekMessage', () => {
+    expect(
+      eodWeekMessage(
+        { startDateId: '20180101', endDateId: '20180107' },
+        sampleMessages
+      )
+    ).toStrictEqual(`
+  Your EODs from Jan, 1st to Jan, 7th:
+  - Sam: Did an awesome thing.
+  - Jess: Thing that is pretty sweet.`);
+  });
 
-test('capitalizeFirstLetter', () => {
-  expect(capitalizeFirstLetter('one')).toEqual('One');
-  expect(capitalizeFirstLetter('TWO')).toEqual('TWO');
+  it('capitalizeFirstLetter', () => {
+    expect(capitalizeFirstLetter('one')).toStrictEqual('One');
+    expect(capitalizeFirstLetter('TWO')).toStrictEqual('TWO');
+  });
 });

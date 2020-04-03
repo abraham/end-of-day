@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "description": "Slack bot for collecting a summary of your team's activity for the day",
   "scripts": {
+    "fix:eslint": "eslint . --ext .ts --ext .js --fix",
     "fix:prettier": "prettier . --write",
     "fix": "concurrently npm:fix:*",
+    "lint:eslint": "eslint . --ext .ts --ext .js",
     "lint:prettier": "prettier . --check",
     "lint": "concurrently npm:lint:*",
     "postinstall": "npm --prefix functions install",
@@ -28,8 +30,14 @@
   "homepage": "https://github.com/abraham/end-of-day#readme",
   "dependencies": {},
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
     "concurrently": "^5.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-jest": "^23.8.2",
     "firebase-tools": "^8.0.1",
-    "prettier": "^2.0.2"
+    "prettier": "^2.0.2",
+    "typescript": "^3.8.3"
   }
 }
