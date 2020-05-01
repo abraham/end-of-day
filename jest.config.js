@@ -2,8 +2,9 @@ module.exports = {
   projects: [
     {
       displayName: 'Tests',
+      testEnvironment: 'node',
       preset: 'ts-jest',
-      testMatch: ['<rootDir>/src/**/*.test.ts'],
+      testMatch: ['<rootDir>/**/*.test.ts'],
       transform: {
         '^.+\\.[t|j]sx?$': 'ts-jest',
       },

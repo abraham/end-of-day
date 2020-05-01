@@ -2,7 +2,7 @@ import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
 import { Command } from './command';
 import { Db } from './db';
-import { DateID, formatReportId } from './ids';
+import { DateID, formatReportId, formatMessageId } from './ids';
 import { Message } from './message';
 import {
   createSlackResponse,
@@ -54,7 +54,7 @@ async function handleMessage(data: WebhookPayload): Promise<string> {
   } else {
     await store
       .collection('messages')
-      .doc(`${message.team_id}_${message.user_id}_${message.date_id}`)
+      .doc(formatMessageId(message))
       .set(message);
     return 'Logging your EOD...';
   }
@@ -96,21 +96,21 @@ async function createWeekReport(message: Message): Promise<string> {
   return createSlackResponse(message, weekRange(), messages);
 }
 
-exports.log = functions.https.onRequest(
+export const log = functions.https.onRequest(
   async ({ body }: { body: WebhookPayload }, response) => {
     const text = await handleMessage(body);
     response.send(text);
   }
 );
 
-exports.onMessageUpdate = functions.firestore
+export const onMessageUpdate = functions.firestore
   .document('messages/{messageId}')
   .onWrite(async ({ after }, _context) => {
     const message: Message = after.data() as Message;
     await updateReport(message.team_id, message.date_id);
   });
 
-exports.onTaskCreate = functions.firestore
+export const onTaskCreate = functions.firestore
   .document('tasks/{taskId}')
   .onCreate(async (snap, _context) => {
     const task = snap.data() as RefreshTask | ListTask;
