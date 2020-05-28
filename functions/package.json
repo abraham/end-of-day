@@ -13,7 +13,7 @@
   },
   "main": "src/index.js",
   "dependencies": {
-    "@google-cloud/firestore": "3.8.0",
+    "@google-cloud/firestore": "3.8.1",
     "firebase-admin": "8.12.1",
     "firebase-functions": "3.6.1",
     "moment": "2.26.0",
