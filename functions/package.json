@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@types/node-fetch": "2.5.7",
-    "typescript": "3.9.3"
+    "typescript": "3.9.5"
   },
   "private": true
 }
