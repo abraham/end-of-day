@@ -46,7 +46,7 @@
     "firebase-tools": "8.6.0",
     "jest": "26.1.0",
     "prettier": "2.0.5",
-    "ts-jest": "26.1.2",
+    "ts-jest": "26.1.3",
     "typescript": "3.9.7"
   },
   "private": true
