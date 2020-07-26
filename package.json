@@ -42,7 +42,7 @@
     "concurrently": "5.2.0",
     "eslint": "7.5.0",
     "eslint-config-prettier": "6.11.0",
-    "eslint-plugin-jest": "23.18.1",
+    "eslint-plugin-jest": "23.18.2",
     "firebase-tools": "8.6.0",
     "jest": "26.1.0",
     "prettier": "2.0.5",
