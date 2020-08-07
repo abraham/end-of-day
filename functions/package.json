@@ -9,7 +9,7 @@
     "start": "npm run shell"
   },
   "engines": {
-    "node": "10"
+    "node": "12"
   },
   "main": "src/index.js",
   "dependencies": {
