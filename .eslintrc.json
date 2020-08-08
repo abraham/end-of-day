@@ -16,10 +16,9 @@
   "env": {
     "node": true
   },
-  "ignorePatterns": ["node_modules/"],
   "rules": {
     "jest/prefer-expect-assertions": 0,
-    "@typescript-eslint/camelcase": 1,
+    "camelcase": 1,
     "@typescript-eslint/explicit-function-return-type": 2
   }
 }
