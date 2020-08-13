@@ -15,7 +15,7 @@
   "dependencies": {
     "@google-cloud/firestore": "4.2.0",
     "firebase-admin": "9.0.0",
-    "firebase-functions": "3.9.0",
+    "firebase-functions": "3.9.1",
     "moment": "2.27.0",
     "node-fetch": "2.6.0",
     "slack": "11.0.2"
