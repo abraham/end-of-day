@@ -1,4 +1,4 @@
-import * as moment from 'moment';
+import moment from 'moment';
 
 type DateID = import('./ids').DateID;
 export interface WeekRange {

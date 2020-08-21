@@ -17,8 +17,10 @@
     "node": true
   },
   "rules": {
-    "jest/prefer-expect-assertions": 0,
+    "@typescript-eslint/explicit-function-return-type": 2,
     "camelcase": 1,
-    "@typescript-eslint/explicit-function-return-type": 2
+    "jest/no-callback": 0,
+    "jest/no-hooks": 0,
+    "jest/prefer-expect-assertions": 0
   }
 }

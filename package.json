@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Slack bot for collecting a summary of your team's activity for the day",
   "scripts": {
-    "build": "tsc",
+    "build": "npm run --prefix functions build",
     "deploy": "firebase deploy",
     "fix:eslint": "eslint . --ext .ts --fix",
     "fix:prettier": "prettier . --write",
@@ -11,9 +11,13 @@
     "lint:eslint": "eslint . --ext .ts",
     "lint:prettier": "prettier . --check",
     "lint": "concurrently npm:lint:*",
+    "install:emulators": "firebase init emulators",
     "postinstall": "npm --prefix functions install",
-    "start:tests": "jest --watch",
-    "test": "jest --watch"
+    "start": "concurrently npm:start:*",
+    "start:emulators": "firebase emulators:start",
+    "start:functions": "npm --prefix functions start",
+    "test": "FIRESTORE_EMULATOR_HOST=\"localhost:8080\" GCLOUD_PROJECT=end-of-day-dev jest",
+    "test:ci": "firebase emulators:exec \"npm test\""
   },
   "engines": {
     "node": "12"
@@ -37,20 +41,24 @@
   "dependencies": {},
   "devDependencies": {
     "@types/jest": "26.0.10",
+    "@types/sinon": "9.0.4",
     "@typescript-eslint/eslint-plugin": "3.9.1",
     "@typescript-eslint/parser": "3.9.1",
     "concurrently": "5.3.0",
     "eslint": "7.7.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-jest": "23.20.0",
+    "firebase-admin": "9.1.1",
     "firebase-tools": "8.8.1",
+    "fishery": "1.0.1",
     "jest": "26.4.1",
-    "jest-runner-eslint": "^0.10.0",
-    "jest-runner-prettier": "^0.3.6",
-    "jest-runner-tsc": "^1.6.0",
+    "jest-runner-eslint": "0.10.0",
+    "jest-runner-prettier": "0.3.6",
+    "jest-runner-tsc": "1.6.0",
     "prettier": "2.0.5",
+    "sinon": "9.0.3",
     "ts-jest": "26.2.0",
-    "typescript": "3.9.7"
+    "typescript": "4.0.2"
   },
   "private": true
 }

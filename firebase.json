@@ -4,7 +4,8 @@
     "indexes": "firestore.indexes.json"
   },
   "functions": {
-    "predeploy": ["npm run lint", "npm run build"]
+    "predeploy": ["npm run lint", "npm run build"],
+    "source": "functions"
   },
   "hosting": {
     "public": "public",
@@ -19,6 +20,9 @@
     },
     "hosting": {
       "port": 5000
+    },
+    "ui": {
+      "enabled": true
     }
   }
 }
