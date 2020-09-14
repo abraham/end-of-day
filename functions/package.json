@@ -16,7 +16,7 @@
     "@google-cloud/firestore": "4.2.0",
     "firebase-admin": "9.1.1",
     "firebase-functions": "3.11.0",
-    "moment": "2.27.0",
+    "moment": "2.28.0",
     "node-fetch": "2.6.1",
     "slack": "11.0.2"
   },
