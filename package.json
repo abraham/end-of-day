@@ -44,7 +44,7 @@
     "eslint-config-prettier": "6.15.0",
     "eslint-plugin-jest": "24.1.0",
     "firebase-tools": "8.14.1",
-    "jest": "26.6.2",
+    "jest": "26.6.3",
     "jest-runner-eslint": "^0.10.0",
     "jest-runner-prettier": "^0.3.6",
     "jest-runner-tsc": "^1.6.0",
