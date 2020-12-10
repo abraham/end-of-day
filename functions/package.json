@@ -14,7 +14,7 @@
   "main": "src/index.js",
   "dependencies": {
     "@google-cloud/firestore": "4.8.0",
-    "firebase-admin": "9.4.1",
+    "firebase-admin": "9.4.2",
     "firebase-functions": "3.13.0",
     "moment": "2.29.1",
     "node-fetch": "2.6.1",
